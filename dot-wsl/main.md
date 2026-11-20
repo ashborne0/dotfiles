@@ -1,8 +1,8 @@
 *Will be updated regularly
 
-# ----------------------------------------------------------------------------------------------------------------
+### ----------------------------------------------------------------------------------------------------------------
 # [1]. UBUNTU | Make Default User to sudo group (Caution: security, better not) 
-# ----------------------------------------------------------------------------------------------------------------
+### ----------------------------------------------------------------------------------------------------------------
 
 ### 1. Check your group
 ```bash
@@ -114,4 +114,58 @@ gcloud config set project <PROJECT_ID>
 gcloud container clusters get-credentials <CLUSTER> --region <REGION>
 git config --global user.name "Your Name"
 git config --global user.email "you@company.com"
+```
+
+### ----------------------------------------------------------------------------------------------------------------
+# [4]. UBUNTU | Network Tooling
+### ----------------------------------------------------------------------------------------------------------------
+these are in the dnsutils, traceroute, iputils-tracepath, mtr-tiny, netcat-openbsd, and net-tools packages
+
+##### 1. Install:
+```bash
+sudo apt update
+sudo apt install -y dnsutils traceroute iputils-tracepath mtr-tiny netcat-openbsd net-tools whois tcpdump openssl curl
+```
+
+##### 2. Usage
+1. DNS
+```bash
+dig example.com              # full answer
+dig +short example.com       # just the IPs
+dig example.com MX           # record types: A, AAAA, MX, TXT, NS, CNAME, SOA
+dig @8.8.8.8 example.com     # query a specific resolver
+dig +trace example.com       # walk the delegation chain from the root
+dig -x 8.8.8.8               # reverse lookup
+```
+
+2. Trace (Tracert/Traceroute)
+```bash
+traceroute example.com
+traceroute -I example.com          # use ICMP instead of UDP (often gets through firewalls)
+traceroute -T -p 443 example.com   # TCP to port 443, useful when ICMP/UDP is blocked
+tracepath example.com              # no root needed
+mtr example.com                    # live, continuous traceroute with packet loss per hop
+mtr -rwzc 100 example.com          # 100-cycle report, good for sharing
+```
+
+3. Curl
+```bash
+curl -v https://example.com                    # verbose: TLS handshake, headers, errors
+curl -I https://example.com                    # headers only
+curl -L -I https://example.com                 # follow redirects
+curl -o /dev/null -s -w "dns:%{time_namelookup} connect:%{time_connect} tls:%{time_appconnect} total:%{time_total}\n" https://example.com
+curl --resolve example.com:443:1.2.3.4 https://example.com   # bypass DNS, test a specific IP
+curl -x http://proxy:8080 https://example.com  # test through a proxy
+```
+
+4. Port and Listener and MISC
+```bash
+nc -zv example.com 443               # port check (Test-NetConnection equivalent)
+sudo ss -tulpn                       # listeners and PIDs
+
+cat /etc/resolv.conf                 # DNS config; WSL often generates this from Windows
+ip route show default                # the Windows host gateway IP
+ipconfig.exe                         # run the Windows ipconfig from WSL
+route.exe print                      # Windows routing table from WSL
+env | grep -i proxy                  # proxy env vars, common on work machines
 ```
