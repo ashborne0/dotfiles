@@ -101,6 +101,10 @@ function watch {
 ```
 Usage: ```bash watch 2 kubectl get pods```
 
+##### Note: for gcloud sdk
+Then restart PowerShell and install the GKE auth plugin:
+```bash gcloud components install gke-gcloud-auth-plugin```
+
 # -----
 # Misc
 # -----
