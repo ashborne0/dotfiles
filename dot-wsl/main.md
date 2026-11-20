@@ -55,31 +55,51 @@ yourname ALL=(ALL) NOPASSWD:ALL
 # ----------------------------------------------------------------------------------------------------------------
 # [3]. UBUNTU | Core Tooling (Gcloud CLI, Kubectl, Terraform, K9s, git, kubectx, kubens, watch, screen/tmux)
 # ----------------------------------------------------------------------------------------------------------------
-
+```bash
+```
 ### 1. Installation
-sudo apt update
 
+```bash
+sudo apt update
+```
+
+```bash
 sudo apt install -y git curl gnupg ca-certificates apt-transport-https procps tmux screen kubectx fzf
+```
 
 ##### Google Cloud repo (gcloud, kubectl, GKE auth plugin)
 
+```bash
 curl -fsSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /usr/share/keyrings/cloud.google.gpg
+```
 
+```bash
 echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee /etc/apt/sources.list.d/google-cloud-sdk.list
+```
 
 ##### HashiCorp repo (Terraform)
 
+```bash
 curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+```
 
+```bash
 echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+```
 
+```bash
 sudo apt update
+```
 
+```bash
 sudo apt install -y google-cloud-cli google-cloud-cli-gke-gcloud-auth-plugin kubectl terraform
+```
 
-# k9s (use arm64 instead of amd64 on an ARM laptop)
+##### k9s (use arm64 instead of amd64 on an ARM laptop)
+```bash
 curl -fsSL -o /tmp/k9s.deb https://github.com/derailed/k9s/releases/latest/download/k9s_linux_amd64.deb
 sudo apt install -y /tmp/k9s.deb
+```
 
 ### 2. Verify
 ```bash
