@@ -40,3 +40,18 @@ oh-my-posh init pwsh --config "$HOME\.poshthemes\neko.omp.json" | Invoke-Express
 # ----------------------------------------------------------------------------------------------------------------
 # WSL setup and installation 
 # ----------------------------------------------------------------------------------------------------------------
+
+### 1. Verify WSL service exists in your PC
+```bash
+wsl.exe
+```
+
+### 2. Search Distro Online
+```bash
+wsl.exe --list --online
+```
+
+### 3. Install selected Distro
+```bash
+wsl.exe --install Ubuntu-26.04 
+```
