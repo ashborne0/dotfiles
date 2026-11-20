@@ -1,7 +1,7 @@
 *Will be updated regularly
 
 # ----------------------------------------------------------------------------------------------------------------
-# 1. Make Default User to sudo group (Caution: security, better not) 
+# [1]. UBUNTU | Make Default User to sudo group (Caution: security, better not) 
 # ----------------------------------------------------------------------------------------------------------------
 
 ### 1. Check your group
