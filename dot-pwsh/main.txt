@@ -1,10 +1,10 @@
 *Will be updated regularly
 
-# Download Latest and LTS Windows PowerShell in Microsoft Store 
-
-# --------------------------------------------------------
+# Download Latest and LTS Microsoft PowerShell in Microsoft Store 
+# Download Latest and LTS Microsoft PowerToys in Microsoft Store
+# ----------------------------------------------------------------------------------------------------------------
 # oh-my-posh installation [https://ohmyposh.dev/docs/installation/windows]
-# --------------------------------------------------------
+# ----------------------------------------------------------------------------------------------------------------
 
 ```bash
 ```
@@ -30,3 +30,8 @@ Invoke-WebRequest https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/ma
 if (!(Test-Path -Path $PROFILE)) { New-Item -ItemType File -Path $PROFILE -Force }
 Add-Content $PROFILE 'oh-my-posh init pwsh --config "$HOME\.poshthemes\neko.omp.json" | Invoke-Expression'
 ```
+
+
+# ----------------------------------------------------------------------------------------------------------------
+# WSL setup and installation 
+# ----------------------------------------------------------------------------------------------------------------
