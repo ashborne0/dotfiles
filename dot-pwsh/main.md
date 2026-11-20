@@ -2,6 +2,24 @@
 
 # Download Latest and LTS Microsoft PowerShell in Microsoft Store 
 # Download Latest and LTS Microsoft PowerToys in Microsoft Store
+
+# ---------------------------------------------------------------------
+# Profile
+# ---------------------------------------------------------------------
+
+1. CRUD
+```shell
+Get-Content $PROFILE
+$PROFILE
+Test-Path $PROFILE
+open $PROFILE
+code $PROFILE
+```
+2. Execution Policy
+```shell
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+```
+
 # -------------------------------------------------------------------------
 # oh-my-posh installation [https://ohmyposh.dev/docs/installation/windows]
 # -------------------------------------------------------------------------
@@ -83,9 +101,9 @@ function watch {
 ```
 Usage: ```bash watch 2 kubectl get pods```
 
-# ----------------------------------------------------------------------------------------------------------------
+# -----
 # Misc
-# ----------------------------------------------------------------------------------------------------------------
+# -----
 
 ### 1. Why Apostrophes and double quotes don't show up until I type the next letter on Windows 11?
 Answer: This is because keyboard layouts gets sets to "United States - International". Commonly faced issue for Windows 11 new devices.
