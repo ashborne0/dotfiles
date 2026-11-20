@@ -1,1 +1,32 @@
-Will be updated regularly
+*Will be updated regularly
+
+# Download Latest and LTS Windows PowerShell in Microsoft Store 
+
+# --------------------------------------------------------
+# oh-my-posh installation [https://ohmyposh.dev/docs/installation/windows]
+# --------------------------------------------------------
+
+```bash
+```
+### 1. Install the package with winget
+```bash
+winget install JanDeDobbeleer.OhMyPosh -s winget
+```
+Close and reopen PowerShell, then install the font:
+
+### 2. Download Font
+```bash
+oh-my-posh font install meslo
+```
+
+### 3. Download Theme, in this case Neko
+```bash
+New-Item -ItemType Directory -Force "$HOME\.poshthemes" | Out-Null
+Invoke-WebRequest https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/neko.omp.json -OutFile "$HOME\.poshthemes\neko.omp.json"
+```
+
+### 4. Make Oh-my-post persistent in Powershell
+```bash
+if (!(Test-Path -Path $PROFILE)) { New-Item -ItemType File -Path $PROFILE -Force }
+Add-Content $PROFILE 'oh-my-posh init pwsh --config "$HOME\.poshthemes\neko.omp.json" | Invoke-Expression'
+```
