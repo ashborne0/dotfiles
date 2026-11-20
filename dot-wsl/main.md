@@ -168,4 +168,7 @@ ip route show default                # the Windows host gateway IP
 ipconfig.exe                         # run the Windows ipconfig from WSL
 route.exe print                      # Windows routing table from WSL
 env | grep -i proxy                  # proxy env vars, common on work machines
+
+sudo apt update && sudo apt install whois
+whois IP_ADDRESS
 ```
