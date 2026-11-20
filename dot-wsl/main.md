@@ -29,6 +29,22 @@ wsl --terminate Ubuntu
 ```bash
 sudo visudo -f /etc/sudoers.d/yourname
 ```
+# ----------------------------------------------------------------------------------------------------------------
+# [1]. UBUNTU | TMUX Keys 
+# ----------------------------------------------------------------------------------------------------------------
+
+Tmux
+Keys	Action
+Ctrl+b c	Create a new window
+Ctrl+b n / p	Next / previous window
+Ctrl+b 0–9	Jump to window by number
+Ctrl+b %	Split pane left/right
+Ctrl+b "	Split pane top/bottom
+Ctrl+b arrow key	Move between panes
+Ctrl+b x	Close the current pane
+Ctrl+b ,	Rename the current window
+Ctrl+b d	Detach from the session
+Ctrl+b [	Scroll mode (press q to exit)
 
 ### 6. Skip the password prompt for sudo
 ```bash
