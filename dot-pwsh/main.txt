@@ -55,3 +55,34 @@ wsl.exe --list --online
 ```bash
 wsl.exe --install Ubuntu-26.04 
 ```
+
+# ----------------------------------------------------------------------------------------------------------------
+# Tooling (Gcloud CLI, Kubectl, Terraform, K9s, git, kubectx, kubens, watch, screen/tmux)
+# ----------------------------------------------------------------------------------------------------------------
+winget install --id Git.Git -e
+winget install --id Google.CloudSDK -e
+winget install --id Kubernetes.kubectl -e
+winget install --id Hashicorp.Terraform -e
+winget install --id Derailed.k9s -e
+winget install --id ahmetb.kubectx -e
+winget install --id ahmetb.kubens -e
+winget install psmux
+
+watch (add this to ps $PROFILE)
+```cpp
+function watch {
+    param([int]$n = 2, [Parameter(Mandatory, ValueFromRemainingArguments)]$cmd)
+    while ($true) {
+        $out = & { Invoke-Expression ($cmd -join ' ') 2>&1 | Out-String }
+        Clear-Host
+        "Every ${n}s: $($cmd -join ' ')   $(Get-Date -Format 'HH:mm:ss')`n"
+        $out
+        Start-Sleep $n
+    }
+}
+```
+Usage: ```bash watch 2 kubectl get pods```
+
+# ----------------------------------------------------------------------------------------------------------------
+# Misc
+# ----------------------------------------------------------------------------------------------------------------
